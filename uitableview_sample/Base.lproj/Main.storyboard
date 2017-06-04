@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="odG-7h-RM3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--一覧-->
+        <scene sceneID="F4x-kH-Dcc">
+            <objects>
+                <tableViewController id="f1W-pO-byi" customClass="ListViewController" customModule="uitableview_sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="X2h-ZI-yFj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="e22-lb-Qi6" style="IBUITableViewCellStyleDefault" id="KBN-fu-zYa">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KBN-fu-zYa" id="OcC-7e-oDt">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="記事タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e22-lb-Qi6">
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="kXD-72-4bF" kind="show" id="KCj-KT-13w"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f1W-pO-byi" id="7Dk-Ua-71C"/>
+                            <outlet property="delegate" destination="f1W-pO-byi" id="Rdo-KK-Bm4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="一覧" id="63V-iu-3XW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XlB-vC-ix1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="391"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="XkK-22-vVe">
+            <objects>
+                <viewController id="kXD-72-4bF" customClass="WebViewController" customModule="uitableview_sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gSN-mm-Dbm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ztP-6s-0lR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0xQ-9p-mkl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Up-40-3ZZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6Up-40-3ZZ" secondAttribute="trailing" id="AjJ-0O-89L"/>
+                            <constraint firstItem="6Up-40-3ZZ" firstAttribute="bottom" secondItem="ztP-6s-0lR" secondAttribute="top" id="jAi-ez-EAz"/>
+                            <constraint firstItem="6Up-40-3ZZ" firstAttribute="leading" secondItem="0xQ-9p-mkl" secondAttribute="leading" id="m1e-vq-opT"/>
+                            <constraint firstItem="6Up-40-3ZZ" firstAttribute="top" secondItem="0xQ-9p-mkl" secondAttribute="top" id="rjJ-i6-mWc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="6Up-40-3ZZ" id="A3K-0b-UfK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnh-ks-RUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1861" y="391"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BcD-FE-STY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="odG-7h-RM3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="04w-sd-sWa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f1W-pO-byi" kind="relationship" relationship="rootViewController" id="W4W-zB-eYg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nf-Ac-gDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="391"/>
+        </scene>
+    </scenes>
+</document>
